@@ -5,6 +5,13 @@
     <artifactId>stpnb</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>nbm</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sourceDirectory>src</sourceDirectory>
+        <outputDirectory>target</outputDirectory>
+        <antlr4.visitor>true</antlr4.visitor>
+        <antlr4.listener>true</antlr4.listener>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -18,8 +25,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -29,6 +36,21 @@
                 <configuration>
                     <useDefaultManifestFile>true</useDefaultManifestFile>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>4.5.1-1</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -48,8 +70,10 @@
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>RELEASE802</version>
         </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.5.1-1</version>
+        </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 </project>
