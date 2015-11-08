@@ -1,6 +1,6 @@
-parser grammar STPParser;
+parser grammar StpParser;
 
-options { tokenVocab=STPLexer; }
+options { tokenVocab=StpLexer; }
 
 template	        :	(comment | tag | htmlContent | variable)* ;
 tagContent	        :	(tag | htmlContent | variable | comment )+ ;              
@@ -50,7 +50,8 @@ htmlContent         :   (TEXT | UNKNOWN | operator)+ ;
 param               :   QUOTED_PARAM | param OP_EQUAL QUOTED_PARAM | number | variable ;
 includeName         :   param ;
 
-params              :   OPEN_PARENS param (COMMA param)* CLOSING_PARENS ; 
+params              :   OPEN_BRACKET param (COMMA param)* CLOSING_BRACKET ; 
 paramsWithoutParens :   param (COMMA param)* ;
 
 number              :   NUMBER ;
+

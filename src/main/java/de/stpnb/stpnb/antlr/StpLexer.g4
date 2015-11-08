@@ -1,4 +1,4 @@
-lexer grammar STPLexer;
+lexer grammar StpLexer;
 
 WS              :   (' '|'\t'|'\r'? '\n')+ -> channel(HIDDEN) ;
 TEXT            :   ('<' ~'%' ~['<'|'"'|'$' |'>']*?'>'? ) | (~['<'|'$']+) ;
@@ -63,7 +63,7 @@ QUOTED_STRING               :  ('\'' (ESC | ~'\'')* '\'') | ('"' ~'"'* '"') ;
 
 
 
-OPEN_PARENS                 : '(' -> pushMode(INSIDE_PARAMS) ;
+OPEN_BRACKET                 : '(' -> pushMode(INSIDE_PARAMS) ;
 
 UNKNOWN_INSIDE_TAG          : .+? -> type(UNKNOWN) ;
 
@@ -71,8 +71,8 @@ UNKNOWN_INSIDE_TAG          : .+? -> type(UNKNOWN) ;
 
 
 mode INSIDE_PARAMS ;
-OPEN_PARENS_INSIDE_PARAMS   : '(' ->type(OPEN_PARENS), pushMode(INSIDE_PARAMS) ;
-CLOSING_PARENS              : ')' -> popMode ;
+OPEN_BRACKET_INSIDE_PARAMS   : '(' ->type(OPEN_BRACKET), pushMode(INSIDE_PARAMS) ;
+CLOSING_BRACKET              : ')' -> popMode ;
 COMMA                       : ',' ; 
 DOT                         : '.' ;
 QUOTED_PARAM                :  ('\'' ( ESC | ~'\'')* '\'') | ('"' ( ESC | ~'"' )* '"') ;
@@ -90,3 +90,5 @@ DIGIT                       :   [0-9] ;
 fragment SLASH              : '/' ;
 fragment
 ESC                         : '\\\'' | '\\"' ;
+
+ERROR_CHARACTER : . ;
