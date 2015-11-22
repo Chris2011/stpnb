@@ -9,4 +9,13 @@
             </file>
         </folder>
     </folder>
+    <folder name="Editors">
+        <folder name="text">
+            <folder name="x-ss">
+                <file name="de-stpnb-stpnb-parser-SilverstripeParserFactory.instance"/>    
+                <file name="de-stpnb-stpnb-parser-SyntaxErrorsHighlightingTaskFactory.instance"/>    
+            </folder>
+        </folder>
+        
+    </folder>
 </filesystem>

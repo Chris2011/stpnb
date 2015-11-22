@@ -20,6 +20,10 @@
                 <artifactId>nbm-maven-plugin</artifactId>
                 <version>3.13</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <licenseName>The MIT License (MIT)</licenseName>
+                    <licenseFile>LICENSE</licenseFile>    
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -59,7 +63,7 @@
                 <version>2.19</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <SAMPLES_DIR>/home/void/projects/samples/stp</SAMPLES_DIR>
+                        <SAMPLES_DIR>/home/void/projects/silverstripe-templates</SAMPLES_DIR>
                     </systemPropertyVariables>    
                 </configuration>
             </plugin>
@@ -159,6 +163,16 @@
             <version>${api.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-parsing-api</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-spi-editor-hints</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>18.0</version>
@@ -167,6 +181,13 @@
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-modules-nbjunit</artifactId>
             <version>${api.version}</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
             <scope>test</scope>
             <type>jar</type>
         </dependency>

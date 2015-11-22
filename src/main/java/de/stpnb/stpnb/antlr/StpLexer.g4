@@ -4,6 +4,9 @@ WS              :   (' '|'\t'|'\r'? '\n')+ -> channel(HIDDEN) ;
 TEXT            :   ('<' ~'%' ~['<'|'"'|'$' |'>']*?'>'? ) | (~['<'|'$']+) ;
 COMMENT         :   '<%--' .*?' --%>' ;
 
+OLD_TRANSLATION :   '<% _t' .*? '%>' ;
+SPRINTF_TRANSLATION : '<% sprintf' .*? '%>' ;
+TRANSLATION     :   '<%t' .*? '%>' ;
 OTAG	        :   '<% '   -> pushMode(INSIDE_TAG) ;
 
 UNKNOWN         :   .+? ;

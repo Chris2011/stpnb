@@ -5,6 +5,7 @@ options { tokenVocab=StpLexer; }
 template	        :	(comment | tag | htmlContent | variable)* ;
 tagContent	        :	(tag | htmlContent | variable | comment )+ ;              
 
+translation         :   TRANSLATION | OLD_TRANSLATION | SPRINTF_TRANSLATION;
 oTag                :   ELSE | ELSE_IF ;
 cTag                :   UNCACHED ;
 tag		            :	ifTag                                  # pairedTag
@@ -17,8 +18,9 @@ tag		            :	ifTag                                  # pairedTag
                     |   includeTag                             # unpairedTag 
                     |   requireTag                             # unpairedTag 
                     |   baseTag                                # unpairedTag 
+                    |   translation                            # unpairedTag 
 		            |	openTag                                # unpairedTag
-                    |   varTag                                 # unpairedTag
+
 		            ;
 comment             :   COMMENT ;
 
@@ -30,18 +32,17 @@ expr                :   variable
                     |   expr operator expr
                     |   operator expr ;
 
-ifTag               :   OTAG IF params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX IF CTAG ;
-withTag             :   OTAG WITH params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX WITH CTAG ;
-controlTag          :   OTAG CONTROL params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX CONTROL CTAG ;
-loopTag             :   OTAG LOOP params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX LOOP CTAG ;
-cacheblockTag       :   OTAG CACHEBLOCK params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX CACHEBLOCK CTAG ;
-cachedTag           :   OTAG CACHED params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX CACHED CTAG ;
-uncachedTag         :   OTAG UNCACHED params? (expr | param)*? CTAG tagContent* OTAG END_PREFIX UNCACHED CTAG ;
+ifTag               :   OTAG IF params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX IF) CTAG ;
+withTag             :   OTAG WITH params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX WITH) CTAG ;
+controlTag          :   OTAG CONTROL params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX CONTROL) CTAG ;
+loopTag             :   OTAG LOOP params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX LOOP) CTAG ;
+cacheblockTag       :   OTAG CACHEBLOCK params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX CACHEBLOCK) CTAG ;
+cachedTag           :   OTAG CACHED params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX CACHED) CTAG ;
+uncachedTag         :   OTAG UNCACHED params? (expr | param)*? CTAG tagContent* OTAG (END_PREFIX UNCACHED) CTAG ;
 includeTag          :   OTAG INCLUDE includeName (expr | param)*? CTAG ; 
 requireTag          :   OTAG REQUIRE RESOURCE params? (expr | param)*? CTAG ; 
 baseTag             :   OTAG BASE CTAG ;
 openTag             :   OTAG oTag params? (expr | param)*? CTAG ;
-varTag              :   OTAG expr+? CTAG ; 
 
 variable            :   (PROPERTY params? (SUBPROPERTY params?)*?)
                     ;
