@@ -2,7 +2,7 @@ package de.stpnb.stpnb.parser;
 
 import de.stpnb.stpnb.antlr.StpParser;
 import de.stpnb.stpnb.antlr.StpParser.TemplateContext;
-import de.stpnb.stpnb.antlr.dto.CharRange;
+import de.stpnb.stpnb.type.CharRange;
 import de.stpnb.stpnb.antlr.visitor.FoldVisitor;
 import de.stpnb.stpnb.parser.SilverstripeParser.SilverstripeParserResult;
 import java.util.ArrayList;

@@ -21,6 +21,7 @@ import org.openide.text.NbDocument;
 public class SyntaxErrorsHighlightingTask extends ParserResultTask {
 
     private static final int PRIORITY = 100;
+
     @Override
     public void run(Parser.Result result, SchedulerEvent event) {
         SilverstripeParserResult parserResult = (SilverstripeParserResult) result;
@@ -38,7 +39,7 @@ public class SyntaxErrorsHighlightingTask extends ParserResultTask {
             try {
                 ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(
                         Severity.ERROR,
-                        ex.getMessage() != null ? ex.getMessage() : "No description available",
+                        ex.getMessage() != null ? ex.getMessage() : "Non-parseable source",
                         document,
                         document.createPosition(start),
                         document.createPosition(end)

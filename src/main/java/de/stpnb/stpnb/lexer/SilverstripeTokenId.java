@@ -48,8 +48,10 @@ public enum SilverstripeTokenId implements TokenId {
     ERROR_CHARACTER("ERROR_CHARACTER", SilverstripeTokenIdCategory.ERROR, StpParser.ERROR_CHARACTER)
     ;
 
+    private static final Language<SilverstripeTokenId> language = new SilverstripeLanguageHierarchy().language();
+    
     public static Language getLanguage() {
-        return new SilverstripeLanguageHierarchy().language();
+        return language;
     }
    
 	private final String name;
@@ -81,4 +83,7 @@ public enum SilverstripeTokenId implements TokenId {
         return idToToken.get(id);
     }
 
+    public int getId() {
+        return id;
+    }
 }

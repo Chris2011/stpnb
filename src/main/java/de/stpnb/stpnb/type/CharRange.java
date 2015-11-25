@@ -1,4 +1,4 @@
-package de.stpnb.stpnb.antlr.dto;
+package de.stpnb.stpnb.type;
 
 
 public class CharRange {

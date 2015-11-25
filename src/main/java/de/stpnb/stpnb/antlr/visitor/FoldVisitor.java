@@ -2,7 +2,7 @@ package de.stpnb.stpnb.antlr.visitor;
 
 import de.stpnb.stpnb.antlr.StpParser;
 import de.stpnb.stpnb.antlr.StpParserBaseVisitor;
-import de.stpnb.stpnb.antlr.dto.CharRange;
+import de.stpnb.stpnb.type.CharRange;
 import java.util.ArrayList;
 import java.util.List;
 import org.antlr.v4.runtime.ParserRuleContext;
