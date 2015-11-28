@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-OpenIDE-Module-Layer: de/stpnb/stpnb/layer.xml
-OpenIDE-Module-Localizing-Bundle: de/stpnb/stpnb/Bundle.properties
+OpenIDE-Module-Layer: de/tinysite/stpnb/layer.xml
+OpenIDE-Module-Localizing-Bundle: de/tinysite/stpnb/Bundle.properties
 
