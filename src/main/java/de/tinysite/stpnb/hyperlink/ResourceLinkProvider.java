@@ -16,6 +16,7 @@ import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
 import org.netbeans.api.project.FileOwnerQuery;
 import org.netbeans.api.project.ProjectUtils;
+import org.netbeans.editor.BaseDocument;
 import org.netbeans.lib.editor.hyperlink.spi.HyperlinkProvider;
 import org.netbeans.modules.editor.NbEditorUtilities;
 import org.openide.cookies.EditCookie;
@@ -103,8 +104,17 @@ public class ResourceLinkProvider  implements HyperlinkProvider {
 
     
     private boolean verifyAndCalculateState(Document doc, int offset) {
-        TokenHierarchy th = TokenHierarchy.get(doc);
-        TokenSequence<SilverstripeTokenId> ts = th.tokenSequence(SilverstripeTokenId.getLanguage());
+        if(!(doc instanceof BaseDocument)) {
+            return false;
+        } 
+        TokenSequence<SilverstripeTokenId> ts = null;
+        ((BaseDocument)doc).readLock();
+        try {
+            TokenHierarchy th = TokenHierarchy.get(doc);
+            ts = th.tokenSequence(SilverstripeTokenId.getLanguage());
+        } finally {
+            ((BaseDocument)doc).readUnlock();
+        }
         if(ts == null) {
             return false;    
         }
