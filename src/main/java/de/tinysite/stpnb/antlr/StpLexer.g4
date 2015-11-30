@@ -2,12 +2,12 @@ lexer grammar StpLexer;
 
 WS              :   (' '|'\t'|'\r'? '\n')+ -> channel(HIDDEN) ;
 TEXT            :   ('<' ~'%' ~['<'|'"'|'$' |'>']*?'>'? ) | (~['<'|'$']+) ;
-COMMENT         :   '<%--' .*?' --%>' ;
+COMMENT         :   '<%--' .*? '--%>' ;
 
 OLD_TRANSLATION :   '<% _t' .*? '%>' ;
 SPRINTF_TRANSLATION : '<% sprintf' .*? '%>' ;
 TRANSLATION     :   '<%t' .*? '%>' ;
-OTAG	        :   '<% '   -> pushMode(INSIDE_TAG) ;
+OTAG	        :   '<%' WS?   -> pushMode(INSIDE_TAG) ;
 
 UNKNOWN         :   .+? ;
 
@@ -22,6 +22,8 @@ OP_AND          : '&&' ;
 OP_OR           : '|' '|'? ;
 OP_EQUAL        :  '=' '='? ;
 OP_NOT_EQUAL    : '!=' ;
+OP_GREATER_THAN : '>' ;
+OP_LESS_THAN    : '<' ;
 
 fragment
 LETTER          : [a-zA-Z] ;
@@ -36,6 +38,8 @@ OP_AND_INSIDE_TAG           : '&&' -> type(OP_AND) ;
 OP_OR_INSIDE_TAG            : '|' '|'? -> type(OP_OR) ;
 OP_EQUAL_INSIDE_TAG         : '=' '='? -> type(OP_EQUAL) ;
 OP_NOT_EQUAL_INSIDE_TAG     : '!=' -> type(OP_NOT_EQUAL) ;
+OP_GREATER_THAN_INSIDE_TAG  : '>' ->type(OP_GREATER_THAN) ;
+OP_LESS_THAN_INSIDE_TAG     : '<' ->type(OP_LESS_THAN) ;
 I_COMMENT                   : '<%--' .*? ' --%>' -> type(COMMENT) ;
 CTAG	                    : ' %>'   -> popMode ;
 

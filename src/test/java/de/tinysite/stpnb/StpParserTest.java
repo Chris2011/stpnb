@@ -2,6 +2,7 @@ package de.tinysite.stpnb;
 
 import de.tinysite.stpnb.antlr.StpLexer;
 import de.tinysite.stpnb.antlr.StpParser;
+import de.tinysite.stpnb.parser.SilverstripeParserErrorListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -30,6 +31,8 @@ public abstract class StpParserTest {
 
     protected String getParserTree(String inputString) {
         StpParser parser = getParser(inputString);
+        parser.removeErrorListeners();
+        parser.addErrorListener(new SilverstripeParserErrorListener());
         return parser.template().toStringTree(parser);
     }
 

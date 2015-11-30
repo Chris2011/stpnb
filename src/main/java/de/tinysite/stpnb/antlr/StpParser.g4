@@ -24,7 +24,7 @@ tag		            :	ifTag                                  # pairedTag
 		            ;
 comment             :   COMMENT ;
 
-operator            :   OP_EQUAL | OP_AND | OP_NOT | OP_OR | OP_NOT_EQUAL ;
+operator            :   OP_EQUAL | OP_AND | OP_NOT | OP_OR | OP_NOT_EQUAL | OP_GREATER_THAN | OP_LESS_THAN ;
             
 expr                :   variable
                     |   number

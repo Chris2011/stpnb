@@ -1,5 +1,6 @@
 package de.tinysite.stpnb;
 
+import de.tinysite.stpnb.parser.SilverstripeParserException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.FileVisitResult;
@@ -39,18 +40,20 @@ public class StpParserFilesBatchTest extends StpParserTest {
                 if(!file.toString().toLowerCase().endsWith(".ss")) {
                     return FileVisitResult.CONTINUE;
                 }
-                LOG.log(Level.INFO, "Process file: " + file.toString());
                 String fileContent = com.google.common.io.Files.toString(file.toFile(), Charset.defaultCharset());
-                getParserTree(fileContent);
+                try {
+                    getParserTree(fileContent);
+                } catch(SilverstripeParserException ex) {
+                    LOG.log(Level.INFO, "Parsing error in " + file.toString(), ex);
+                }
                 return FileVisitResult.CONTINUE;
             }
 
             @Override
             public FileVisitResult visitFileFailed(Path file, IOException ex) {
-                LOG.log(Level.WARNING, "Failed to visit file " + file.toString());
+                LOG.log(Level.INFO, "Failed to visit file " + file.toString(), ex);
                 return FileVisitResult.CONTINUE;
             }
-            
         });
     }
 }

@@ -22,6 +22,8 @@ public enum SilverstripeTokenId implements TokenId {
     OP_OR("OP_OR", SilverstripeTokenIdCategory.OPERATOR, StpParser.OP_OR),
     OP_EQUAL("OP_EQUAL", SilverstripeTokenIdCategory.OPERATOR, StpParser.OP_EQUAL),
     OP_NOT_EQUAL("OP_NOT_EQUAL", SilverstripeTokenIdCategory.OPERATOR, StpParser.OP_NOT_EQUAL),
+    OP_GREATER_THAN("OP_GREATER_THAN", SilverstripeTokenIdCategory.OPERATOR, StpParser.OP_GREATER_THAN),
+    OP_LESS_THAN("OP_LESS_THAN", SilverstripeTokenIdCategory.OPERATOR, StpParser.OP_LESS_THAN),
     CTAG("CTAG", SilverstripeTokenIdCategory.KEYWORD, StpParser.CTAG),
     END_PREFIX("END_PREFIX", SilverstripeTokenIdCategory.KEYWORD, StpParser.END_PREFIX),
     INCLUDE("INCLUDE", SilverstripeTokenIdCategory.KEYWORD, StpParser.INCLUDE),
