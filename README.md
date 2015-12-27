@@ -21,12 +21,24 @@ So far it includes:
 * Click "Add plugins..." and add your downloaded nbm file
 * Click "Install" and follow along.
 
-[releases]: https://github.com/jdemeschew/stpnb/releases 
+[releases]: https://github.com/jdemeschew/stpnb/releases
 
 ## Uninstall
 
 * Go to "Tools/Plugins" and choose "Installed" tab
 * Type "silverstripe" into "Search:" field
 * Check "Silverstripe template plugin" and click "Uninstall"
- 
- 
+
+## Build from source
+
+* **Prerequisites**  
+If not already installed, install [JDK] 1.7 or above and [Maven] 3.0 or above
+* **Clone**  
+    git clone https://github.com/jdemeschew/stpnb.git
+* **Build**  
+    cd stpnb  
+    mvn package  
+
+nbm file will be placed into target/ folder
+[JDK]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+[Maven]: https://maven.apache.org/install.html
