@@ -11,13 +11,13 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static junit.framework.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 import org.junit.Before;
 import org.junit.Test;
+import static junit.framework.Assert.assertTrue;
 
 
-public class StpParserFilesBatchTest extends StpParserTest {
+public class StpParserFilesBatchTest extends BaseParserTest {
 
     private static final Logger LOG = Logger.getLogger(StpParserFilesBatchTest.class.getSimpleName());
     
@@ -45,6 +45,7 @@ public class StpParserFilesBatchTest extends StpParserTest {
                     getParserTree(fileContent);
                 } catch(SilverstripeParserException ex) {
                     LOG.log(Level.INFO, "Parsing error in " + file.toString(), ex);
+                    throw ex;
                 }
                 return FileVisitResult.CONTINUE;
             }

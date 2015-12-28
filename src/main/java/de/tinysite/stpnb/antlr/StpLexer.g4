@@ -43,8 +43,8 @@ OP_LESS_THAN_INSIDE_TAG     : '<' ->type(OP_LESS_THAN) ;
 I_COMMENT                   : '<%--' .*? ' --%>' -> type(COMMENT) ;
 CTAG	                    : ' %>'   -> popMode ;
 
+END_PREFIX                  :   'end_' {!Character.isWhitespace(_input.LA(1))}?;
 WS_INSIDE_TAG               :   (' '|'\t'|'\r'? '\n')+ -> channel(HIDDEN), type(WS) ;
-END_PREFIX                  :   'end_' ;
 
 INCLUDE                     :   'include' ;
 WITH                        :   'with' ;

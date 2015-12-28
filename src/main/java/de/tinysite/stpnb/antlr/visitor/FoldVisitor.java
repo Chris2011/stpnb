@@ -10,7 +10,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 
 public class FoldVisitor  extends StpParserBaseVisitor<Object> {
 
-    private List<CharRange> folds = new ArrayList<>();
+    private final List<CharRange> folds = new ArrayList<>();
 
     @Override
     public Object visitPairedTag(StpParser.PairedTagContext ctx) {

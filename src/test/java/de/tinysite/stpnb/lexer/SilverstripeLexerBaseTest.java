@@ -1,4 +1,4 @@
-package de.tinysite.stpnb;
+package de.tinysite.stpnb.lexer;
 
 import de.tinysite.stpnb.lexer.SilverstripeLexer;
 import de.tinysite.stpnb.lexer.SilverstripeTokenId;

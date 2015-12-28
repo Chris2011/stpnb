@@ -2,7 +2,6 @@ package de.tinysite.stpnb;
 
 import java.util.Arrays;
 import java.util.Collection;
-import static junit.framework.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -11,7 +10,7 @@ import static junit.framework.Assert.assertEquals;
 
 
 @RunWith(Parameterized.class)
-public class StpParserSnippetBatchTest extends StpParserTest {
+public class StpParserSnippetBatchTest extends BaseParserTest {
 
     private final String inputString;
     private final String expectedParseResult;
