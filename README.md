@@ -1,5 +1,7 @@
 # Silverstripe Template Plugin for Netbeans
 
+[![Build Status](https://travis-ci.org/jdemeschew/stpnb.svg?branch=master)](https://travis-ci.org/jdemeschew/stpnb)
+
 A NetBeans plugin offering support for SilverStripe template files.
 
 So far it includes:
