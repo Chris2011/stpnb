@@ -1,7 +1,5 @@
 package de.tinysite.stpnb.lexer;
 
-import de.tinysite.stpnb.lexer.SilverstripeLexer;
-import de.tinysite.stpnb.lexer.SilverstripeTokenId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;

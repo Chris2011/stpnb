@@ -7,6 +7,6 @@ public class InvalidInputParserTest extends BaseParserTest {
 
     @Test(expected=SilverstripeParserException.class)
     public void endPrefixWithSpace() {
-        String parsed = getParserTree("<% if Foo %>BAR<% end_ if %>");
+        getParserTree("<% if Foo %>BAR<% end_ if %>");
     }
 }
