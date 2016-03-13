@@ -14,8 +14,13 @@
             <folder name="x-ss">
                 <file name="de-tinysite-stpnb-parser-SilverstripeParserFactory.instance"/>    
                 <file name="de-tinysite-stpnb-parser-SyntaxErrorsHighlightingTaskFactory.instance"/>    
+                <folder name="BracesMatchers">
+                    <file name="de-tinysite-stpnb-parser-SilverstripeBracesMatching.instance">
+                        <attr name="position" intvalue="50"/>
+                    </file>
+                </folder>
             </folder>
         </folder>
-        
     </folder>
+
 </filesystem>

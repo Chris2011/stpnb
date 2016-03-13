@@ -34,7 +34,7 @@ So far it includes:
 ## Build from source
 
 * **Prerequisites**  
-If not already installed, install [JDK] 1.7 or above and [Maven] 3.0 or above
+If not already installed, install [JDK] 1.8 or above and [Maven] 3.0 or above
 * **Clone**  
     git clone https://github.com/jdemeschew/stpnb.git
 * **Build**  

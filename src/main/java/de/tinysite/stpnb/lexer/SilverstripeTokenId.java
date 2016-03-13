@@ -1,12 +1,15 @@
 package de.tinysite.stpnb.lexer;
 
+import com.google.common.collect.ImmutableSet;
 import de.tinysite.stpnb.antlr.StpParser;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import org.netbeans.api.lexer.Language;
 import org.netbeans.api.lexer.TokenId;
 
 public enum SilverstripeTokenId implements TokenId {
+
 
     WS("WS", SilverstripeTokenIdCategory.WHITESPACE, StpParser.WS),
     TEXT("TEXT", SilverstripeTokenIdCategory.TEXT, StpParser.TEXT),
@@ -59,6 +62,21 @@ public enum SilverstripeTokenId implements TokenId {
 
     private static final Map<Integer, SilverstripeTokenId> idToToken = new HashMap<>();
 
+    private static Set<SilverstripeTokenId> matchable = ImmutableSet.of(
+        COMMENT,
+        OTAG,
+        CTAG,
+        CACHEBLOCK,
+        CONTROL,
+        ELSE,
+        ELSE_IF,
+        IF,
+        LOOP,
+        UNCACHED,
+        WITH,
+        END_PREFIX
+    );
+
     SilverstripeTokenId(String name, SilverstripeTokenIdCategory primaryCategory, int id) {
         this.name = name;
         this.primaryCategory = primaryCategory;
@@ -67,6 +85,10 @@ public enum SilverstripeTokenId implements TokenId {
         
     public static Language getLanguage() {
         return language;
+    }
+
+    public static boolean hasMatches(SilverstripeTokenId token) {
+        return matchable.contains(token);
     }
 
     static {
